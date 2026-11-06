@@ -125,3 +125,14 @@ Calculates student risk using all 17 features.
   - Most frequent imputation + `OneHotEncoder` for nominal attributes
 - **Target Variable:** `Needs_Support = 1` if `Exam_Score < 65`.
 
+---
+
+## 👥 Team Details
+
+**Team Name:** The Amateur Gang
+
+### 👨‍💻 Team Members
+- **Abhijeet Patil**
+- **Sneha Patel**
+- **Adyasha Khuntia**
+- **Prasad Dahore**
