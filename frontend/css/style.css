@@ -1,0 +1,466 @@
+/* ========================================================
+   Student Academic Risk Predictor — Styles
+   ======================================================== */
+
+/* ── Reset & Base ── */
+*,
+*::before,
+*::after {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: "Inter", system-ui, -apple-system, sans-serif;
+    background: #f1f5f9;
+    color: #1e293b;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+/* ── Header ── */
+.header {
+    background: linear-gradient(135deg, #1e3a5f 0%, #2563eb 100%);
+    color: #fff;
+    padding: 2.5rem 1.5rem;
+    text-align: center;
+}
+
+.header h1 {
+    font-size: 1.9rem;
+    font-weight: 700;
+    margin-bottom: 0.4rem;
+}
+
+.header p {
+    font-size: 1rem;
+    opacity: 0.85;
+}
+
+/* ── Container ── */
+.container {
+    max-width: 860px;
+    width: 100%;
+    margin: -1.5rem auto 2rem;
+    padding: 0 1rem;
+    flex: 1;
+}
+
+/* ── Card ── */
+.card {
+    background: #fff;
+    border-radius: 12px;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.08);
+    padding: 1.5rem 1.8rem;
+    margin-bottom: 1.2rem;
+}
+
+.section-title {
+    font-size: 1.15rem;
+    font-weight: 600;
+    margin-bottom: 1.2rem;
+    color: #0f172a;
+}
+
+/* ── Presets Bar ── */
+.presets-bar {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1rem;
+    padding: 1rem 1.4rem;
+    margin-bottom: 1.2rem;
+    flex-wrap: wrap;
+    background: #f8fafc;
+    border: 1px solid #e2e8f0;
+}
+
+.presets-label {
+    font-size: 0.9rem;
+    font-weight: 600;
+    color: #334155;
+}
+
+.presets-buttons {
+    display: flex;
+    gap: 0.5rem;
+    flex-wrap: wrap;
+}
+
+.preset-btn {
+    padding: 0.45rem 0.85rem;
+    border-radius: 6px;
+    font-size: 0.82rem;
+    font-weight: 500;
+    cursor: pointer;
+    border: 1px solid transparent;
+    transition: all 0.15s ease-in-out;
+    background: #fff;
+    color: #475569;
+}
+
+.preset-btn:hover {
+    transform: translateY(-1px);
+    box-shadow: 0 2px 4px rgba(0,0,0,0.06);
+}
+
+.preset-btn.at-risk {
+    border-color: #fca5a5;
+    background: #fef2f2;
+    color: #991b1b;
+}
+
+.preset-btn.at-risk:hover {
+    background: #fee2e2;
+}
+
+.preset-btn.average {
+    border-color: #fde047;
+    background: #fefce8;
+    color: #854d0e;
+}
+
+.preset-btn.average:hover {
+    background: #fef9c3;
+}
+
+.preset-btn.high-achiever {
+    border-color: #86efac;
+    background: #f0fdf4;
+    color: #166534;
+}
+
+.preset-btn.high-achiever:hover {
+    background: #dcfce7;
+}
+
+.preset-btn.reset {
+    border-color: #cbd5e1;
+    color: #475569;
+}
+
+.preset-btn.reset:hover {
+    background: #f1f5f9;
+}
+
+/* ── Risk Bar Gauge ── */
+.risk-bar-container {
+    margin-top: 1.5rem;
+    padding-top: 1.2rem;
+    border-top: 1px solid #e2e8f0;
+}
+
+.risk-bar-labels {
+    display: flex;
+    justify-content: space-between;
+    font-size: 0.75rem;
+    color: #64748b;
+    margin-bottom: 0.4rem;
+}
+
+.risk-bar-track {
+    height: 12px;
+    background: #e2e8f0;
+    border-radius: 6px;
+    overflow: hidden;
+    position: relative;
+}
+
+.risk-bar-fill {
+    height: 100%;
+    width: 0%;
+    border-radius: 6px;
+    transition: width 0.6s cubic-bezier(0.4, 0, 0.2, 1), background-color 0.4s ease;
+}
+
+.risk-bar-fill.ok {
+    background: linear-gradient(90deg, #22c55e, #16a34a);
+}
+
+.risk-bar-fill.medium {
+    background: linear-gradient(90deg, #eab308, #ca8a04);
+}
+
+.risk-bar-fill.high {
+    background: linear-gradient(90deg, #ef4444, #dc2626);
+}
+
+/* ── Fields Grid ── */
+.fields-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1.2rem 2rem;
+}
+
+@media (max-width: 640px) {
+    .fields-grid {
+        grid-template-columns: 1fr;
+    }
+}
+
+/* ── Field ── */
+.field label {
+    display: block;
+    font-size: 0.82rem;
+    font-weight: 500;
+    color: #475569;
+    margin-bottom: 0.4rem;
+}
+
+/* ── Slider ── */
+.slider-wrap {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+}
+
+.slider-wrap input[type="range"] {
+    flex: 1;
+    -webkit-appearance: none;
+    appearance: none;
+    height: 6px;
+    border-radius: 3px;
+    background: #cbd5e1;
+    outline: none;
+    cursor: pointer;
+}
+
+.slider-wrap input[type="range"]::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    appearance: none;
+    width: 18px;
+    height: 18px;
+    border-radius: 50%;
+    background: #2563eb;
+    cursor: pointer;
+    border: 2px solid #fff;
+    box-shadow: 0 1px 4px rgba(37, 99, 235, 0.4);
+    transition: transform 0.15s;
+}
+
+.slider-wrap input[type="range"]::-webkit-slider-thumb:hover {
+    transform: scale(1.15);
+}
+
+.slider-value {
+    min-width: 2.2rem;
+    text-align: center;
+    font-weight: 600;
+    font-size: 0.95rem;
+    color: #2563eb;
+    background: #eff6ff;
+    border-radius: 6px;
+    padding: 0.2rem 0.5rem;
+}
+
+/* ── Select ── */
+select {
+    width: 100%;
+    padding: 0.55rem 0.75rem;
+    border: 1.5px solid #cbd5e1;
+    border-radius: 8px;
+    font-size: 0.9rem;
+    font-family: inherit;
+    background: #fff;
+    color: #1e293b;
+    cursor: pointer;
+    outline: none;
+    transition: border-color 0.2s;
+}
+
+select:focus {
+    border-color: #2563eb;
+    box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.15);
+}
+
+/* ── Toggle Group ── */
+.toggle-group {
+    display: flex;
+    gap: 0;
+    border: 1.5px solid #cbd5e1;
+    border-radius: 8px;
+    overflow: hidden;
+}
+
+.toggle-btn {
+    flex: 1;
+    padding: 0.5rem 0.75rem;
+    border: none;
+    background: #fff;
+    font-family: inherit;
+    font-size: 0.88rem;
+    font-weight: 500;
+    color: #64748b;
+    cursor: pointer;
+    transition: all 0.2s;
+}
+
+.toggle-btn + .toggle-btn {
+    border-left: 1.5px solid #cbd5e1;
+}
+
+.toggle-btn.selected {
+    background: #2563eb;
+    color: #fff;
+}
+
+.toggle-btn:hover:not(.selected) {
+    background: #f1f5f9;
+}
+
+/* ── Submit Button ── */
+.submit-btn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.6rem;
+    width: 100%;
+    padding: 0.9rem;
+    margin-top: 0.5rem;
+    margin-bottom: 1.5rem;
+    background: linear-gradient(135deg, #2563eb 0%, #1d4ed8 100%);
+    color: #fff;
+    border: none;
+    border-radius: 10px;
+    font-family: inherit;
+    font-size: 1.05rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: opacity 0.2s, transform 0.15s;
+    box-shadow: 0 4px 14px rgba(37, 99, 235, 0.35);
+}
+
+.submit-btn:hover {
+    opacity: 0.92;
+    transform: translateY(-1px);
+}
+
+.submit-btn:active {
+    transform: translateY(0);
+}
+
+.submit-btn:disabled {
+    opacity: 0.6;
+    cursor: not-allowed;
+}
+
+/* ── Spinner ── */
+.spinner {
+    width: 18px;
+    height: 18px;
+    border: 2.5px solid rgba(255, 255, 255, 0.3);
+    border-top-color: #fff;
+    border-radius: 50%;
+    animation: spin 0.65s linear infinite;
+}
+
+@keyframes spin {
+    to { transform: rotate(360deg); }
+}
+
+/* ── Result Card ── */
+.result-card {
+    background: #fff;
+    border-radius: 12px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+    padding: 2rem;
+    text-align: center;
+    margin-bottom: 2rem;
+    animation: fadeUp 0.4s ease-out;
+}
+
+@keyframes fadeUp {
+    from { opacity: 0; transform: translateY(20px); }
+    to   { opacity: 1; transform: translateY(0); }
+}
+
+.result-title {
+    font-size: 1.1rem;
+    font-weight: 600;
+    color: #475569;
+    margin-bottom: 1.2rem;
+}
+
+.result-circle {
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto 1rem;
+    font-size: 2.5rem;
+    transition: background 0.3s;
+}
+
+.result-circle.ok       { background: #dcfce7; }
+.result-circle.medium   { background: #fef9c3; }
+.result-circle.high     { background: #fee2e2; }
+
+.result-label {
+    font-size: 1.5rem;
+    font-weight: 700;
+    margin-bottom: 0.25rem;
+}
+
+.result-label.ok       { color: #16a34a; }
+.result-label.medium   { color: #ca8a04; }
+.result-label.high     { color: #dc2626; }
+
+.result-risk {
+    font-size: 0.95rem;
+    color: #64748b;
+    margin-bottom: 1.2rem;
+}
+
+.result-details {
+    display: flex;
+    justify-content: center;
+    gap: 2.5rem;
+    flex-wrap: wrap;
+}
+
+.detail-item {
+    text-align: center;
+}
+
+.detail-key {
+    display: block;
+    font-size: 0.78rem;
+    color: #94a3b8;
+    margin-bottom: 0.2rem;
+}
+
+.detail-value {
+    font-size: 1.1rem;
+    font-weight: 600;
+    color: #1e293b;
+}
+
+/* ── Error Card ── */
+.error-card {
+    background: #fef2f2;
+    border: 1px solid #fecaca;
+    border-radius: 10px;
+    padding: 1rem 1.5rem;
+    margin-bottom: 2rem;
+    color: #b91c1c;
+    font-size: 0.92rem;
+    animation: fadeUp 0.3s ease-out;
+}
+
+/* ── Footer ── */
+.footer {
+    text-align: center;
+    padding: 1.2rem;
+    font-size: 0.82rem;
+    color: #94a3b8;
+}
+
+/* ── Utility ── */
+.hidden {
+    display: none !important;
+}
+
